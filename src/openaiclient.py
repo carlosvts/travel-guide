@@ -9,7 +9,7 @@ from openai import OpenAI
 
 dotenv.load_dotenv()
 
-API_KEY = os.environ["OPENAI-API-KEY"]
+API_KEY = os.environ["OPENROUTER-AI-KEY"]
 
 if not API_KEY:
     raise ValueError("OpenAI API key not found")
@@ -23,18 +23,28 @@ class MyOpenAI():
     def __init__(self, api_key=API_KEY) -> None:
         # connecting with openai client
         self.api_key = api_key
-        self.client = OpenAI(api_key=self.api_key)
+        self.client = OpenAI(
+            api_key=self.api_key,
+            base_url="https://openrouter.ai/api/v1",
+            )
 
-    def get_ai_response(self, prompt="write a test message") -> str:
-        response = self.client.responses.create(
+    # TODO gerar o prompt, refatorar a lógica content fstrings etc
+    def get_ai_response(self, params=list[str | list]) -> str:
+        self.prompt = params
+        response = self.client.chat.completions.create(
             model="gpt-4o",
-            input=[
-                {"role": "user", "content": prompt}
-                ]
+            max_tokens= 50,
+            messages=[
+                {
+                    "role": "user",
+                    "content": "Diga sua cor favorita"
+                }
+            ]
+
         )
 
         # return response.output_text
-        return "teste"
+        return response.choices[0].message.content
     
 if __name__ == "__main__":
     foo = MyOpenAI()

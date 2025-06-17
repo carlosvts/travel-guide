@@ -1,5 +1,7 @@
 from argparse import ArgumentParser
 
+from openaiclient import MyOpenAI
+
 
 def run() -> dict[str, str | int | float]:
     """
@@ -80,7 +82,9 @@ def run() -> dict[str, str | int | float]:
 # Testing
 if __name__ == '__main__':
     args = run()
-
+    # TODO instanciar a classe MyOpenAI
+    #client = MyOpenAI()
+    # client.get_ai_response()
     for bar in args.values():
         print(bar)
 
