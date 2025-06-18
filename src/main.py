@@ -50,7 +50,7 @@ def run() -> dict[str, str | int | float]:
         '--interest',
         help="Places of interest that you want to visit example:'museums, parks'",
         required=False,
-        nargs="+",
+        nargs="?",
         default=None,
     )
 
@@ -70,7 +70,7 @@ def run() -> dict[str, str | int | float]:
         help="How many people that will travel",
         type=int,
         required=False,
-        default=None
+        default=1,
     )
 
     args = parser.parse_args()
@@ -83,8 +83,16 @@ def run() -> dict[str, str | int | float]:
 if __name__ == '__main__':
     args = run()
     # TODO instanciar a classe MyOpenAI
-    #client = MyOpenAI()
-    # client.get_ai_response()
-    for bar in args.values():
-        print(bar)
+    client = MyOpenAI()
+    all_user_input = list()
+    for user_input in args.values():
+        print(user_input)
+        if user_input is None:
+            break
+
+        all_user_input.append(user_input)
+    print(all_user_input)
+    #client.get_ai_response(all_user_input)
+
+    
 

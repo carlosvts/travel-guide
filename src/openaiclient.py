@@ -30,14 +30,18 @@ class MyOpenAI():
 
     # TODO gerar o prompt, refatorar a lógica content fstrings etc
     def get_ai_response(self, params=list[str | list]) -> str:
-        self.prompt = params
+    #    self.prompt = params
+    #    self._city = self.prompt[0]
+    #    self._start_date, self._end_date = self.prompt[1], self.prompt[2]
+    #    self._budget = self.prompt[3]
+
         response = self.client.chat.completions.create(
             model="gpt-4o",
-            max_tokens= 50,
+            max_tokens= 300,
             messages=[
                 {
                     "role": "user",
-                    "content": "Diga sua cor favorita"
+                    "content": f"Generate a travel itinerary to paris"
                 }
             ]
 
