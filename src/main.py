@@ -22,6 +22,14 @@ def run() -> dict[str, str | int | float]:
     )
 
     parser.add_argument(
+        "-o",
+        "--origin",
+        type=str,
+        help="Your origin point, the country or place you are currently in",
+        required=True,
+    )
+
+    parser.add_argument(
         '-sd',
         '--start_date',
         type=str,
@@ -74,7 +82,6 @@ def run() -> dict[str, str | int | float]:
     )
 
     args = parser.parse_args()
-    args = vars(args)
 
     return args
 
@@ -82,19 +89,20 @@ def run() -> dict[str, str | int | float]:
 # Testing
 if __name__ == '__main__':
     args = run()
-    # TODO instanciar a classe MyOpenAI
     client = MyOpenAI()
-    all_user_input = list()
-    for user_input in args.values():
-        print(user_input)
-        if user_input is None:
-            break
 
-        all_user_input.append(user_input)
-    print(all_user_input)
-    #client.get_ai_response(all_user_input)
+    # hardcoded, but this is the way
+    all_user_input = [
+        args.origin,  
+        args.destination,
+        args.start_date,
+        args.end_date,
+        args.budget,
+        args.travelers,
+        args.interest,
+        args.custom_note
+    ]
 
-    
+    user_response = client.get_ai_response(all_user_input)
 
-# erkgverngbernge
-# jnwfbhwefu
+    print(user_response)
