@@ -24,7 +24,7 @@ Follow these steps to get TravelGuide up and running on your local machine.
 
 1. **Clone the Repository (or download the source code):**
 
-`git clone https://github.com/yourusername/travelguide.git`
+`git clone https://github.com/carlosvts/travelguide.git`
 
 Or if you downloaded a zip: `unzip travelguide-main.zip`
 
