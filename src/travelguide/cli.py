@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from openaiclient import MyOpenAI
+from travelguide.openaiclient import MyOpenAI
 
 
 def run() -> dict[str, str | int | float]:
@@ -83,12 +83,6 @@ def run() -> dict[str, str | int | float]:
 
     args = parser.parse_args()
 
-    return args
-
-
-# Testing
-if __name__ == '__main__':
-    args = run()
     client = MyOpenAI()
 
     # hardcoded, but this is the way
@@ -106,3 +100,27 @@ if __name__ == '__main__':
     user_response = client.get_ai_response(all_user_input)
 
     print(user_response)
+
+    return args
+
+
+# Testing
+# if __name__ == '__main__':
+#     args = run()
+#     client = MyOpenAI()
+
+#     # hardcoded, but this is the way
+#     all_user_input = [
+#         args.origin,  
+#         args.destination,
+#         args.start_date,
+#         args.end_date,
+#         args.budget,
+#         args.travelers,
+#         args.interest,
+#         args.custom_note
+#     ]
+
+#     user_response = client.get_ai_response(all_user_input)
+
+#     print(user_response)

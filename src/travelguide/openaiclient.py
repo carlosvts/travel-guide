@@ -48,7 +48,7 @@ class MyOpenAI():
 
         response = self.client.chat.completions.create(
             model="gpt-4o",
-            max_tokens= 1000,
+            max_tokens= 600,
             messages=[
                 {
                     "role": "user",
@@ -58,7 +58,7 @@ class MyOpenAI():
                         Generate a travel itinerary for {self._travelers} people
                         to {self._city}, the travel will start at
                         {self._start_date} and end at {self._end_date}.
-                        The budget for this travel is {self._budget}.
+                        The budget for this travel is {self._budget} dollars.
                         My places of interests are {self._interest}.
                         Also, {self._custom_note}
 
@@ -66,6 +66,8 @@ class MyOpenAI():
                         Your answer will be placed in a terminal, so add some 
                         colors using ANSI escape code
                         to make it prettier and easy to read
+
+
 
                         If your token limit didnt exceeded, generate a ascii art
                         to emphasize this travel
@@ -78,7 +80,8 @@ class MyOpenAI():
 
         # return response.output_text
         return response.choices[0].message.content
-    
+
+
 if __name__ == "__main__":
     foo = MyOpenAI()
 
