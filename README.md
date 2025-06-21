@@ -25,7 +25,8 @@ Follow these steps to get TravelGuide up and running on your local machine.
 1. **Clone the Repository (or download the source code):**
 
 `git clone https://github.com/yourusername/travelguide.git`
-Or if you downloaded a zip: unzip travelguide-main.zip
+
+Or if you downloaded a zip: `unzip travelguide-main.zip`
 
 
 2. **Navigate to the Project Directory:**
@@ -97,7 +98,7 @@ Once installed, you can use the `travelguide` command directly from your termina
  | ----- | ----- | ----- | ----- | ----- | 
 | `-i` | `--interest` | Places of interest you want to go to | String | `'museums, parks'` | 
 | `-t` | `--travelers` | Number of people that will travel | Integer | `2` | 
-| `-cn` | `--custom_note` | Add a custom note to the AI | String | `'Make a family friendly guide` |
+| `-cn` | `--custom_note` | Add a custom note to the AI | String | `'Make a family friendly guide'` |
 
 ### Example:
 
