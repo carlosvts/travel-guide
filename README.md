@@ -76,7 +76,7 @@ Once installed, you can use the `travelguide` command directly from your termina
 
 ### Basic Command Structure:
 
-`travelguide -o &lt;origin> -d &lt;destination> -sd &lt;start_date> -ed &lt;end_date> -b &lt;budget>`
+`travelguide -o <origin> -d <destination> -sd <start_date> -ed <end_date> -b <budget>`
 
 
 ### Arguments:
@@ -90,7 +90,11 @@ Once installed, you can use the `travelguide` command directly from your termina
 | `-b` | `--budget` | Your estimated budget for the trip. | Float | `3020.40` |
 
 ### Optional arguments
-You can also add some extra arguments to increment the AI response
+
+> ! You can also add some extra arguments to increment the AI response
+
+| Short Flag | Long Flag | Description | Type | Example | 
+ | ----- | ----- | ----- | ----- | ----- | 
 | `-i` | `--interest` | Places of interest you want to go to | String | `'museums, parks'` | 
 | `-t` | `--travelers` | Number of people that will travel | Integer | `2` | 
 | `-cn` | `--custom_note` | Add a custom note to the AI | String | `'Make a family friendly guide` |
